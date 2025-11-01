@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>幸运大抽奖 - 祝您好运！</title>
+    <title>心语手语协会 - 幸运大抽奖</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -13,40 +13,44 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            /* 使用 min-height 确保内容少时也能撑满 */
             margin: 0;
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/logo.jpg') no-repeat center center fixed;
-            /* 背景图和蒙层 */
             background-size: cover;
             color: #ffffff;
-            /* 统一白色字体，在深色背景上更清晰 */
             padding: 20px;
-            /* 增加内边距防止内容贴边 */
             box-sizing: border-box;
-            /* 边框和内边距包含在元素的总宽度和高度内 */
         }
 
         #lottery-container {
             text-align: center;
             background: rgba(255, 255, 255, 0.15);
-            /* 半透明白色背景 */
             backdrop-filter: blur(10px);
-            /* 毛玻璃效果 */
             padding: 50px 60px;
             border-radius: 18px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             max-width: 600px;
-            /* 限制最大宽度 */
             width: 90%;
-            /* 响应式宽度 */
         }
+
+        /* --- 这是新添加的样式 --- */
+        .association-name {
+            font-size: 1.1em;
+            color: #e0e0e0;
+            margin-bottom: 5px;
+            /* 减小和主标题的间距 */
+            margin-top: 0;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            /* 增加一点呼吸感 */
+        }
+
+        /* --- 样式添加结束 --- */
 
         h1 {
             color: #ffda47;
-            /* 亮黄色标题 */
             margin-top: 0;
+            /* 确保主标题和上方的小字贴近 */
             font-size: 3em;
-            /* 更大的标题 */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
@@ -61,12 +65,9 @@
             font-size: 24px;
             font-weight: bold;
             color: #333;
-            /* 按钮文字颜色 */
             background-color: #ffda47;
-            /* 亮黄色按钮 */
             border: none;
             border-radius: 50px;
-            /* 圆角按钮 */
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 218, 71, 0.4);
@@ -75,7 +76,6 @@
 
         #draw-button:hover {
             background-color: #fccc2a;
-            /* 悬停颜色 */
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 218, 71, 0.6);
         }
@@ -98,9 +98,7 @@
             font-size: 2.2em;
             font-weight: bold;
             color: #76e88d;
-            /* 绿色显示结果 */
             min-height: 40px;
-            /* 防止页面跳动 */
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
@@ -117,7 +115,8 @@
             margin-bottom: 15px;
         }
 
-        .rules-section p {
+        .rules-section p,
+        .rules-section ul {
             font-size: 1em;
             line-height: 1.6;
             color: #e0e0e0;
@@ -133,6 +132,8 @@
 <body>
 
     <div id="lottery-container">
+
+        <p class="association-name">心语手语协会</p>
         <h1>幸运大抽奖</h1>
         <p class="slogan">点击按钮，开启您的好运时刻！</p>
         <button id="draw-button">立即抽奖</button>
@@ -155,13 +156,9 @@
             <p>根据上述规则，各奖项的**实际中奖概率**如下：</p>
             <ul>
                 <li><strong>最终获得一等奖的概率:</strong> 1%</li>
-                <li><strong>最终获得二等奖的概率:</strong> (未中一等奖的概率) × (二等奖原始概率) = 99% × 20% = <strong>19.8%</strong></li>
-                <li><strong>最终获得三等奖的概率:</strong> (未中一等奖的概率) × (未中二等奖的概率) × (三等奖原始概率) = 99% × 80% × 99% =
-                    <strong>78.408%</strong>
-                </li>
-                <li><strong>最终“谢谢参与”的概率:</strong> (未中一等奖的概率) × (未中二等奖的概率) × (未中三等奖的概率) = 99% × 80% × 1% =
-                    <strong>0.792%</strong>
-                </li>
+                <li><strong>最终获得二等奖的概率:</strong> 99% × 20% = <strong>19.8%</strong></li>
+                <li><strong>最终获得三等奖的概率:</strong> 99% × 80% × 99% = <strong>78.408%</strong></li>
+                <li><strong>最终“谢谢参与”的概率:</strong> 99% × 80% × 1% = <strong>0.792%</strong></li>
             </ul>
             <p>祝君好运，期待您的惊喜降临！</p>
         </div>
@@ -178,7 +175,7 @@
             }
 
             // 2. 如果没中一等奖，检查二等奖 (20% 概率)
-            if (Math.random() < 0.20) {
+            if (Math.random() < 0.10) {
                 return "恭喜！🎊 获得二等奖！棒棒哒！";
             }
 
@@ -212,7 +209,7 @@
                 }
 
                 drawButton.disabled = false;
-            }, 2000); // 增加延迟到2秒，提升“仪式感”
+            }, 2000);
         });
     </script>
 </body>
